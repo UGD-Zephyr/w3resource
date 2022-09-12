@@ -1,0 +1,62 @@
+W3resource C programming exercise progress:
+-------------------------------------------
+Date: 2022-07-30
+Last updated: 2022-09-11
+
+
+Basic Declarations and Expressions
+	- incomplete
+
+Basic Algorithm
+	-incomplete
+
+Variable Type
+	-incomplete
+
+Input_Output
+	-incomplete
+
+Conditional_Statement
+	-incomplete
+
+For_loop
+	-incomplete
+
+Array
+	-incomplete
+
+Pointer
+    -exercise 7-8 complete (out of 22)
+	-incomplete
+
+Linked_list
+	-incomplete
+
+Numbers
+	-incomplete
+
+String
+	-incomplete
+
+Date_time
+	-incomplete
+
+Math
+	-incomplete
+
+Function
+	-incomplete
+
+Recursion
+	-incomplete
+
+File Handling
+	-incomplete
+
+Algorithm_Search_and_Sorting
+	-incomplete
+
+Algorithm_Practice
+	- incomplete
+
+
