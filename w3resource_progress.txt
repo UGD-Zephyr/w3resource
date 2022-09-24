@@ -26,7 +26,7 @@ Array
 	-incomplete
 
 Pointer
-    -exercise 7-8 complete (out of 22)
+    -exercise 1-11 complete (out of 22)
 	-incomplete
 
 Linked_list
@@ -39,6 +39,7 @@ String
 	-incomplete
 
 Date_time
+    -exercise 1 complete (out of 10)
 	-incomplete
 
 Math
@@ -51,6 +52,7 @@ Recursion
 	-incomplete
 
 File Handling
+    -exercise 1-5 (out of 15)
 	-incomplete
 
 Algorithm_Search_and_Sorting
