@@ -3,6 +3,8 @@
  * Last changed: 2022-09-14
  * Type of program:  sort an array using pointers
  * and dynamic memmory allocation.
+ *
+ * NOTES: STILL WORK IN PROGRESS!
  * */
 
 #include <stdio.h>
