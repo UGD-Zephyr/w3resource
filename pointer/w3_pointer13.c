@@ -36,21 +36,21 @@ void vowel_and_consonant_counter(char *string_pointer){
              
              
              
-            for(function_loop_counter1 = 0; string_pointer[function_loop_counter1] != '\0'; function_loop_counter1++){
+            while(*string_pointer != '\0'){
 
                /* 
                 * First the string gets converted to all lowercase to make
                 * the vowel and consonant check twice as fast (we don't need
                 * to show the user that we only check lowercase letters)
                 */
-                string_pointer[function_loop_counter1] = tolower(string_pointer[function_loop_counter1]);
+                *string_pointer = tolower(*string_pointer);
 
                /* 
                 * The first if statement checks for big and small letters in the string,
                 * if none, consonant and vowels will not be counted.
                 */
-                if( (string_pointer[function_loop_counter1] >= 65 && string_pointer[function_loop_counter1] <= 90) ||
-                    (string_pointer[function_loop_counter1] >= 97 && string_pointer[function_loop_counter1] <= 122)){
+                if( (*string_pointer >= 65 && *string_pointer <= 90) ||
+                    (*string_pointer >= 97 && *string_pointer <= 122)){
                     
                     
                    /* 
@@ -58,11 +58,11 @@ void vowel_and_consonant_counter(char *string_pointer){
                     * if none count as consonant in the below else statement. 
                     */        
                     if (
-                        (string_pointer[function_loop_counter1] == 97) ||
-                        (string_pointer[function_loop_counter1] == 101)||
-                        (string_pointer[function_loop_counter1] == 105)||
-                        (string_pointer[function_loop_counter1] == 111)||
-                        (string_pointer[function_loop_counter1] == 117)){
+                        (*string_pointer == 97) ||
+                        (*string_pointer == 101)||
+                        (*string_pointer == 105)||
+                        (*string_pointer == 111)||
+                        (*string_pointer == 117)){
 
                             function_vowel_counter++;
                     }
@@ -75,6 +75,7 @@ void vowel_and_consonant_counter(char *string_pointer){
                     }
                 }
 
+                string_pointer++;
             }
 
         printf("Vowels:     %d\n", function_vowel_counter);
