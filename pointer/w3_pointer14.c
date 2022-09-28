@@ -4,8 +4,9 @@
  * Type of program:  sort an array using pointers
  * and dynamic memmory allocation.
  *
- * NOTES: The array_print_function and bubble_sort_function are not
- * printing out the actual array...
+ * NOTES: Everything works on Linux and Windows OS:es now...
+ * All that remains is to make the bubble sort algorithm use
+ * pointers (purely for practice).
  * */
 
 #include <stdio.h>
@@ -31,38 +32,21 @@ int main(int argc, char *argv[]){
          * Function to populate array with values.
          * */
 		number_array = array_input_function(number_array_element);
-		printf("number_array after populate function:			%d %d %d %d %d\n",	number_array[0], 
-																						number_array[1], 
-																						number_array[2],
-																						number_array[3],
-																						number_array[4]);
 
-        /*
+	    /*
          * Array before sorting.
          * */
         printf("\nUnsorted array:   ");
         array_print_function(number_array, number_array_element);
         printf("\n");
-		printf("number_array after print function:			%d %d %d %d %d\n",	number_array[0], 
-																						number_array[1], 
-																						number_array[2],
-																						number_array[3],
-																						number_array[4]);
-
-
+	
 		/*
 		 * Bubble sort and prints array after sorting.
 		 * */
         printf("\nSorted array:     ");
 		bubble_sort_function(number_array, number_array_element);
         printf("\n");
-		printf("number_array after bubble_sort_function function:	%d %d %d %d %d\n",	number_array[0], 
-																						number_array[1], 
-																						number_array[2],
-																						number_array[3],
-																						number_array[4]);
-
-
+		
 		free(number_array);
 
 return 0;
@@ -105,23 +89,21 @@ void bubble_sort_function(int *bubble_array, int array_sort_size){
 	int bubble_loop_counter2;
 	int bubble_temp;
 
-		for(bubble_loop_counter1 = 0; bubble_loop_counter1 < array_sort_size; bubble_loop_counter1++){
-			for(bubble_loop_counter2 = 0; bubble_loop_counter2 < (bubble_loop_counter1 - bubble_loop_counter1); bubble_loop_counter2++){
-				if(bubble_array[bubble_loop_counter2] > bubble_array[bubble_loop_counter2 + 1]){
-					bubble_temp = bubble_array[bubble_loop_counter2];
-					bubble_array[bubble_loop_counter2] = bubble_array[bubble_loop_counter2 + 1];
-					bubble_array[bubble_loop_counter2 + 1] = bubble_temp;
-				}
-			}
+		for(bubble_loop_counter1 = 0;
+            bubble_loop_counter1 < (array_sort_size - 1); 
+            bubble_loop_counter1++){
+                for(bubble_loop_counter2 = 0; 
+                    bubble_loop_counter2 < (array_sort_size - 1);
+                    bubble_loop_counter2++){
+                        if(bubble_array[bubble_loop_counter2] > bubble_array[bubble_loop_counter2 + 1]){
+                            bubble_temp = bubble_array[bubble_loop_counter2];
+                            bubble_array[bubble_loop_counter2] = bubble_array[bubble_loop_counter2 + 1];
+                            bubble_array[bubble_loop_counter2 + 1] = bubble_temp;
+                        }
+                }
 		}
 		
 		array_print_function(bubble_array, array_sort_size);
-		printf("\nnumber_array after INSIDE bubble_sort_function function:	%d %d %d %d %d\n",	bubble_array[0], 
-																						bubble_array[1], 
-																						bubble_array[2],
-																						bubble_array[3],
-																						bubble_array[4]);
-
 }
 
 void array_print_function(int *dummy_array_print, int array_print_size){
