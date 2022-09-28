@@ -12,8 +12,9 @@
 
 #define STRING_LENGTH 10
 
-void array_print_function(int *dummy_array, int array_size);
-int *array_input_function(int array_size);
+int *array_input_function(int array_input_size);
+void bubble_sort_function(int *bubble_array, int array_sort_size);
+void array_print_function(int *dummy_array, int array_print_size);
 
 int main(int argc, char *argv[]){
 
@@ -26,13 +27,7 @@ int main(int argc, char *argv[]){
 		sscanf(user_inputted_string, "%d", &number_array_element);
 
         /*
-         * Function to input selected amount of elements
-         * into the array.
-         * */
-        //array_input_function(number_array, number_array_element);
-
-        /*
-         * Function to 
+         * Function to populate array with values.
          * */
 		number_array = array_input_function(number_array_element);
 
@@ -43,25 +38,16 @@ int main(int argc, char *argv[]){
         array_print_function(number_array, number_array_element);
         printf("\n");
 
-        /*
-         * Array after sorting.
-         * */
+		/*
+		 * Bubble sort and prints array after sorting.
+		 * */
         printf("\nSorted array:     ");
-        array_print_function(number_array, number_array_element);
+		bubble_sort_function(number_array, number_array_element);
         printf("\n");
-       
+
 		free(number_array);
 
 return 0;
-}
-
-void array_print_function(int *dummy_array_print, int array_print_size){
-
-    int function_loop_counter1;
-
-        for(function_loop_counter1 = 0; function_loop_counter1 < array_print_size; function_loop_counter1++){
-            printf("%d ", (*dummy_array_print + function_loop_counter1));
-        }
 }
 
 int *array_input_function(int array_input_size){
@@ -81,9 +67,48 @@ int *array_input_function(int array_input_size){
                 printf("Enter element %d:", function_loop_counter1+1);
                 fgets(function_inputted_string, STRING_LENGTH, stdin);
                 sscanf(function_inputted_string, "%d", &function_inputted_value);
-                *function_array = function_inputted_value;
-                *function_array++;
+				
+		   		/*
+				 * This works...but i need it to be pointers...
+				function_array[function_loop_counter1]= function_inputted_value;
+				 */
+
+				/*
+				 * This works now, need to check with Linux OS for seg fault as well!
+				 * Same syntax as in array_print_function in the printf() statement.
+				 * */
+                *(function_array + function_loop_counter1) = function_inputted_value;
 		    }        
 
 return function_array;
 }
+
+void bubble_sort_function(int *bubble_array, int array_sort_size){
+
+	int bubble_loop_counter1;
+	int bubble_loop_counter2;
+	int bubble_temp;
+
+		for(bubble_loop_counter1 = 0; bubble_loop_counter1 < array_sort_size; bubble_loop_counter1++){
+			for(bubble_loop_counter2 = 0; bubble_loop_counter2 < (bubble_loop_counter1 - bubble_loop_counter1); bubble_loop_counter2++){
+				if(bubble_array[bubble_loop_counter2] > bubble_array[bubble_loop_counter2 + 1]){
+					bubble_temp = bubble_array[bubble_loop_counter2];
+					bubble_array[bubble_loop_counter2] = bubble_array[bubble_loop_counter2 + 1];
+					bubble_array[bubble_loop_counter2 + 1] = bubble_temp;
+				}
+			}
+		}
+		
+		array_print_function(bubble_array, array_sort_size);
+}
+
+void array_print_function(int *dummy_array_print, int array_print_size){
+
+    int function_loop_counter1;
+
+        for(function_loop_counter1 = 0; function_loop_counter1 < array_print_size; function_loop_counter1++){
+            printf("%d ", (*dummy_array_print + function_loop_counter1));
+        }
+}
+
+
