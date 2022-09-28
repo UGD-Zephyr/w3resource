@@ -31,11 +31,11 @@ int main(int argc, char *argv[]){
          * Function to populate array with values.
          * */
 		number_array = array_input_function(number_array_element);
-		printf("number_array after populate function:	%d %d %d %d %d\n",	number_array[0], 
-																			number_array[1], 
-																			number_array[2],
-																			number_array[3],
-																			number_array[4]);
+		printf("number_array after populate function:			%d %d %d %d %d\n",	number_array[0], 
+																						number_array[1], 
+																						number_array[2],
+																						number_array[3],
+																						number_array[4]);
 
         /*
          * Array before sorting.
@@ -43,12 +43,11 @@ int main(int argc, char *argv[]){
         printf("\nUnsorted array:   ");
         array_print_function(number_array, number_array_element);
         printf("\n");
-		
-		printf("number_array after print function:	%d %d %d %d %d\n",		number_array[0], 
-																			number_array[1], 
-																			number_array[2],
-																			number_array[3],
-																			number_array[4]);
+		printf("number_array after print function:			%d %d %d %d %d\n",	number_array[0], 
+																						number_array[1], 
+																						number_array[2],
+																						number_array[3],
+																						number_array[4]);
 
 
 		/*
@@ -57,12 +56,11 @@ int main(int argc, char *argv[]){
         printf("\nSorted array:     ");
 		bubble_sort_function(number_array, number_array_element);
         printf("\n");
-		
-		printf("number_array after print function:	%d %d %d %d %d\n",		number_array[0], 
-																			number_array[1], 
-																			number_array[2],
-																			number_array[3],
-																			number_array[4]);
+		printf("number_array after bubble_sort_function function:	%d %d %d %d %d\n",	number_array[0], 
+																						number_array[1], 
+																						number_array[2],
+																						number_array[3],
+																						number_array[4]);
 
 
 		free(number_array);
@@ -89,13 +87,13 @@ int *array_input_function(int array_input_size){
                 sscanf(function_inputted_string, "%d", &function_inputted_value);
 				
 				//This works...but i need it to be pointers...
-				function_array[function_loop_counter1]= function_inputted_value;
+				//function_array[function_loop_counter1]= function_inputted_value;
 
 				/*
 				 * This works now, need to check with Linux OS for seg fault as well!
 				 * Same syntax as in array_print_function in the printf() statement.
 				 * */
-                //*(function_array + function_loop_counter1) = function_inputted_value;
+                *(function_array + function_loop_counter1) = function_inputted_value;
 		    }        
 
 return function_array;
@@ -118,6 +116,12 @@ void bubble_sort_function(int *bubble_array, int array_sort_size){
 		}
 		
 		array_print_function(bubble_array, array_sort_size);
+		printf("\nnumber_array after INSIDE bubble_sort_function function:	%d %d %d %d %d\n",	bubble_array[0], 
+																						bubble_array[1], 
+																						bubble_array[2],
+																						bubble_array[3],
+																						bubble_array[4]);
+
 }
 
 void array_print_function(int *dummy_array_print, int array_print_size){
@@ -125,7 +129,7 @@ void array_print_function(int *dummy_array_print, int array_print_size){
     int function_loop_counter1;
 
         for(function_loop_counter1 = 0; function_loop_counter1 < array_print_size; function_loop_counter1++){
-            printf("%d ", (*dummy_array_print + function_loop_counter1));
+            printf("%d ", *(dummy_array_print + function_loop_counter1));
         }
 }
 
