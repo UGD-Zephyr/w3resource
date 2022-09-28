@@ -4,7 +4,8 @@
  * Type of program:  sort an array using pointers
  * and dynamic memmory allocation.
  *
- * NOTES: STILL WORK IN PROGRESS!
+ * NOTES: The array_print_function and bubble_sort_function are not
+ * printing out the actual array...
  * */
 
 #include <stdio.h>
@@ -30,6 +31,11 @@ int main(int argc, char *argv[]){
          * Function to populate array with values.
          * */
 		number_array = array_input_function(number_array_element);
+		printf("number_array after populate function:	%d %d %d %d %d\n",	number_array[0], 
+																			number_array[1], 
+																			number_array[2],
+																			number_array[3],
+																			number_array[4]);
 
         /*
          * Array before sorting.
@@ -37,6 +43,13 @@ int main(int argc, char *argv[]){
         printf("\nUnsorted array:   ");
         array_print_function(number_array, number_array_element);
         printf("\n");
+		
+		printf("number_array after print function:	%d %d %d %d %d\n",		number_array[0], 
+																			number_array[1], 
+																			number_array[2],
+																			number_array[3],
+																			number_array[4]);
+
 
 		/*
 		 * Bubble sort and prints array after sorting.
@@ -44,6 +57,13 @@ int main(int argc, char *argv[]){
         printf("\nSorted array:     ");
 		bubble_sort_function(number_array, number_array_element);
         printf("\n");
+		
+		printf("number_array after print function:	%d %d %d %d %d\n",		number_array[0], 
+																			number_array[1], 
+																			number_array[2],
+																			number_array[3],
+																			number_array[4]);
+
 
 		free(number_array);
 
@@ -68,16 +88,14 @@ int *array_input_function(int array_input_size){
                 fgets(function_inputted_string, STRING_LENGTH, stdin);
                 sscanf(function_inputted_string, "%d", &function_inputted_value);
 				
-		   		/*
-				 * This works...but i need it to be pointers...
+				//This works...but i need it to be pointers...
 				function_array[function_loop_counter1]= function_inputted_value;
-				 */
 
 				/*
 				 * This works now, need to check with Linux OS for seg fault as well!
 				 * Same syntax as in array_print_function in the printf() statement.
 				 * */
-                *(function_array + function_loop_counter1) = function_inputted_value;
+                //*(function_array + function_loop_counter1) = function_inputted_value;
 		    }        
 
 return function_array;
