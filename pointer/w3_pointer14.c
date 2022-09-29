@@ -1,12 +1,10 @@
 /* Programmer: Per Stoor
  * Date: 2022-09-14
- * Last changed: 2022-09-14
+ * Last changed: 2022-09-28
  * Type of program:  sort an array using pointers
  * and dynamic memmory allocation.
  *
- * NOTES: Everything works on Linux and Windows OS:es now...
- * All that remains is to make the bubble sort algorithm use
- * pointers (purely for practice).
+ * NOTES: Exercise completed
  * */
 
 #include <stdio.h>
@@ -70,13 +68,6 @@ int *array_input_function(int array_input_size){
                 fgets(function_inputted_string, STRING_LENGTH, stdin);
                 sscanf(function_inputted_string, "%d", &function_inputted_value);
 				
-				//This works...but i need it to be pointers...
-				//function_array[function_loop_counter1]= function_inputted_value;
-
-				/*
-				 * This works now, need to check with Linux OS for seg fault as well!
-				 * Same syntax as in array_print_function in the printf() statement.
-				 * */
                 *(function_array + function_loop_counter1) = function_inputted_value;
 		    }        
 
@@ -95,10 +86,10 @@ void bubble_sort_function(int *bubble_array, int array_sort_size){
                 for(bubble_loop_counter2 = 0; 
                     bubble_loop_counter2 < (array_sort_size - 1);
                     bubble_loop_counter2++){
-                        if(bubble_array[bubble_loop_counter2] > bubble_array[bubble_loop_counter2 + 1]){
-                            bubble_temp = bubble_array[bubble_loop_counter2];
-                            bubble_array[bubble_loop_counter2] = bubble_array[bubble_loop_counter2 + 1];
-                            bubble_array[bubble_loop_counter2 + 1] = bubble_temp;
+                        if(*(bubble_array + bubble_loop_counter2) > *(bubble_array + (bubble_loop_counter2 + 1))){
+                            bubble_temp = *(bubble_array + bubble_loop_counter2);
+                            *(bubble_array + bubble_loop_counter2) = *(bubble_array + (bubble_loop_counter2 + 1));
+                            *(bubble_array + (bubble_loop_counter2 + 1)) = bubble_temp;
                         }
                 }
 		}
