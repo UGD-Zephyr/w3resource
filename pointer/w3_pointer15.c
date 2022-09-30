@@ -2,6 +2,8 @@
  * Date:			2022-09-29
  * Last changed:	2022-09-29
  * Type of Program:	show how a function returns a pointer.
+ *
+ * Notes: Task completed!
  * */
 
 #include <stdio.h>
@@ -22,18 +24,15 @@ int main(int argc, char *argv[]){
 		for(loop_counter1 = 0; loop_counter1 < 2; loop_counter1++){
 			if(loop_counter1 == 0){
 				user_value1 = user_input_function();
-				printf("main loop 1!\n");
 			}
 			else if(loop_counter1 == 1){
 				user_value2 = user_input_function();
-				printf("main loop 2!\n");
 			}
 			else{
 				printf("I SHOLD NEVER BE SEEN!\n");
 			}
 		}
 		
-				printf("outside main loop!\n");
 		largest_number_pointer = compare_function(&user_value1, &user_value2);
 		printf("The largest number is: %d\n", *largest_number_pointer);
 	
@@ -61,14 +60,12 @@ int *compare_function(int *compare1, int *compare2){
 	int *compare_function_result = 0;
 
 	// The problem is inside the function and the if-statements.
- 		printf("inside the compare function!\n");
 		if(*compare1 > *compare2){
-			compare_function_result = &compare1;
+			compare_function_result = compare1;
 		}
 		else if(*compare2 > *compare1){
-			compare_function_result = &compare2;
+			compare_function_result = compare2;
 		}
- 		printf("inside the compare function, outside the loop!\n");
 
 return compare_function_result;
 }
