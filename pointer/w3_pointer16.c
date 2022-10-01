@@ -1,9 +1,7 @@
 /* Programmer: Per Stoor
  * Date: 2022-09-30
- * Last changed: 2022-09-30
+ * Last changed: 2022-10-01
  * Type of program: Compute the sum of all elements in an array using pointers.
- *
- * Notes: DONE! But add functions to make it better...
  */
 
 #include <stdio.h> 
