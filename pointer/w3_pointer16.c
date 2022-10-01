@@ -11,16 +11,14 @@
 
 #define STRING_LENGTH 10
 
+int calculate_sum(int *function_array_pointer, int function_array_elements);
+
 int main(int argc, char *argv[]){ 
 
     int amount_of_array_elements;
     int sum;
     int *sum_array;
-    int sum_array_value;
-    int loop_counter1;
     char user_inputted_string[STRING_LENGTH];
-
-        sum = 0;
 
         printf("Enter amount of elements: ");
         fgets(user_inputted_string, STRING_LENGTH, stdin);
@@ -32,19 +30,33 @@ int main(int argc, char *argv[]){
                 exit(EXIT_FAILURE);
             }
 
-            for(loop_counter1 = 0; loop_counter1 < amount_of_array_elements; loop_counter1++){
-
-                printf("Enter element %d: ", (loop_counter1 + 1));
-                fgets(user_inputted_string, STRING_LENGTH, stdin);
-                sscanf(user_inputted_string, "%d", &sum_array_value);
-
-                *(sum_array + loop_counter1) = sum_array_value;
-                sum = (sum + *(sum_array + loop_counter1));
-            }
-
+        sum = 0;
+        sum = calculate_sum(sum_array, amount_of_array_elements);
         printf("The sum is: %d\n", sum);
             
         free(sum_array);
 
 return 0;
 } 
+
+int calculate_sum(int *function_array_pointer, int function_array_elements){
+
+    int function_loop_counter1;
+    int function_array_value;
+    int function_sum;
+    char function_inputted_string[STRING_LENGTH];
+
+        function_sum = 0;
+
+            for(function_loop_counter1 = 0; function_loop_counter1 < function_array_elements; function_loop_counter1++){
+
+                printf("Enter element %d: ", (function_loop_counter1 + 1));
+                fgets(function_inputted_string, STRING_LENGTH, stdin);
+                sscanf(function_inputted_string, "%d", &function_array_value);
+
+                *(function_array_pointer + function_loop_counter1) = function_array_value;
+                function_sum = (function_sum + *(function_array_pointer + function_loop_counter1));
+            }
+
+return function_sum;
+}
