@@ -1,6 +1,6 @@
 /* Programmer: Per Stoor
  * Date: 2022-10-03
- * Last changed: 2022-10-03
+ * Last changed: 2022-10-05
  * Type of program: show the usage of pointer to structure.
  */
 
@@ -26,11 +26,15 @@ int main(int argc, char *argv[]){
         person_pointer = &person1;
         printf("Enter name: ");
         fgets(user_inputted_string, STRING_LENGTH, stdin);
-        //sscanf(user_inputted_string, "%d", &person_pointer->person_age);
+        strcpy(person_pointer->person_name, user_inputted_string);
 
-        strcpy(person1.person_name, user_inputted_string);
+        printf("Enter age: ");
+        fgets(user_inputted_string, STRING_LENGTH, stdin);
+        sscanf(user_inputted_string, "%d", &person_pointer->person_age);
 
-        printf("Inputted name: %s\n", ((*person_pointer).person_name));
+        printf("\n");
+        printf("Inputted name:  %s", ((*person_pointer).person_name));
+        printf("Inputted age:   %d\n", ((*person_pointer).person_age));
 
 return 0;
 } 
