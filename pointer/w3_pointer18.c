@@ -6,7 +6,6 @@
 
 #include <stdio.h> 
 #include <stdlib.h> 
-#include <string.h>
 
 #define STRING_LENGTH 30
 
@@ -25,8 +24,7 @@ int main(int argc, char *argv[]){
 
         person_pointer = &person1;
         printf("Enter name: ");
-        fgets(user_inputted_string, STRING_LENGTH, stdin);
-        strcpy(person_pointer->person_name, user_inputted_string);
+        fgets((person_pointer->person_name), STRING_LENGTH, stdin);
 
         printf("Enter age: ");
         fgets(user_inputted_string, STRING_LENGTH, stdin);
