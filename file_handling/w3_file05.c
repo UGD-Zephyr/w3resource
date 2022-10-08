@@ -11,7 +11,8 @@
 
 int main (int argc, char *argv[]){
 
-	int character_counter;
+	//int character_counter;
+    int line_counter;
 	char character_in_file;
 	FILE *file_to_read;
 
@@ -21,17 +22,33 @@ int main (int argc, char *argv[]){
 				exit(EXIT_FAILURE);
 			}
 
-			character_counter = 0;
+                line_counter = 0;
+                while((character_in_file = fgetc(file_to_read)) != EOF){
+                    if(character_in_file == '\n'){
+                        line_counter++;
+                    }
+                }
+
+                printf("Line counter = %d\n", line_counter);
+            /*
+             * This counts amount of characters in a text file.
+             * ASCII value 32 = white space and '\n' is newline.
+             * this code will not count these two as characters.
+			character_counter = 1;
 			while((character_in_file = fgetc(file_to_read)) != EOF){
-                if(character_in_file != 32 || character_in_file != '\n'){
-				    character_counter++;
+                if(character_in_file == 32 || character_in_file == '\n'){
+				    character_counter = character_counter;
+                }
+                else{
+                    character_counter++;
                 }
 			}
 
-			/*
+             *
 			 * character_counter is -1 so that the last NULL value isn't added to the count.
-			 * */
-			printf("Amount of characters in test.txt: %d\n", (character_counter - 1));
+			 *
+			 *   printf("Amount of characters in test.txt: %d\n", (character_counter - 1));
+             * */
 
 		fclose(file_to_read);
 

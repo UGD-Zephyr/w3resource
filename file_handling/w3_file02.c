@@ -15,11 +15,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define STRING_LENGTH 50
+#define STRING_LENGTH 256 
 
 int main (int argc, char *argv[]){
 
-	int loop_counter1;
 	char text_buffer[STRING_LENGTH];
 	char file_path[STRING_LENGTH];
 	char *p;

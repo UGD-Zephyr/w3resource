@@ -13,7 +13,7 @@ int main (int argc, char *argv[]){
 	char user_inputted_string[STRING_LENGTH];
 	FILE *file_pointer;
 	
-	file_pointer = fopen("C://Users/stoorp/test.txt", "w");
+	file_pointer = fopen("/mnt/c/wsl_programming/c/w3resource/file_handling/file_handling01_test.txt", "w");
 
 		if (file_pointer == NULL){
 			printf("Error opening file!\n");

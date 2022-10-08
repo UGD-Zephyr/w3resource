@@ -16,7 +16,7 @@
 #include <string.h>
 
 #define STRING_LENGTH 50
-#define FILE_PATH "C://Users/stoorp/programming/C/test.txt"
+#define FILE_PATH "/mnt/c/wsl_programming/c/w3resource/file_handling/w3_file03_test.txt"
 #define TEST_LINE "Test line "
 
 int main (int argc, char *argv[]){
@@ -25,7 +25,6 @@ int main (int argc, char *argv[]){
 	int single_character;
 	int loop_counter1;
 	char user_inputted_string[STRING_LENGTH];
-	char text_buffer[STRING_LENGTH];
 	FILE *file_pointer;
 
 		printf("Please enter how many lines to add:");
@@ -65,7 +64,7 @@ int main (int argc, char *argv[]){
 				printf("Error opening file!\n");
 				exit(EXIT_FAILURE);
 			}	
-				while ((single_character = getc(file_pointer))!= EOF){
+				while ((single_character = getc(file_pointer)) != EOF){
 					putchar(single_character);
 				}
 
